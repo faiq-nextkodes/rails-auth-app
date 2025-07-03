@@ -1,11 +1,29 @@
-<% content_for :title, "New product" %>
-
-<h1>New product</h1>
-
-<%= render "form", product: @product %>
+<div class="container">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Add Products</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <% if !user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "LogIn" , new_user_session_path, class: "btn" %>
+            </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Home" , products_path, class: "btn" %>
+              </li>
+            <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 <br>
 
-<div>
-  <%= link_to "Back to products", products_path %>
+<%= render "form", product: @product %>
+
 </div>
