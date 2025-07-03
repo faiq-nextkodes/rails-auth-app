@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="btn navbar-brand" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Wallmart</button>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav w-100 d-flex justify-content-between">
+        <% if user_signed_in? %>
+          <!-- Left Side -->
+          <div class="d-flex">
+            <li class="nav-item">
+              <%= link_to "Home", products_path, class: "btn me-2" %>
+            </li>
+          </div>
+
+          <!-- Right Side -->
+          <div class="d-flex">
+            <li class="nav-item">
+              <%= link_to "Settings", edit_user_registration_path, class: "btn me-2" %>
+            </li>
+            <!-- <li class="nav-item">
+              <%= button_to "Log Out", destroy_user_session_path, method: :delete, data: { turbo: "false" }, class: "btn" %>
+            </li> -->
+          </div>
+        <% else %>
+          <!-- Only right side with Login -->
+          <div class="ms-auto">
+            <li class="nav-item">
+              <%= link_to "Log In", new_user_session_path, class: "btn" %>
+            </li>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

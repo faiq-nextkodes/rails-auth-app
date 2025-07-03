@@ -1,0 +1,21 @@
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div style="justify-self: center;">
+            <div class="list-group" style="width: 400px">
+                <a href="#" class="list-group-item list-group-item-action active fw-bold" aria-current="true">
+                    Wallmart Quick Access
+                </a>
+                <%= link_to "Home", products_path, class:"list-group-item list-group-item-action" %>
+                <%= link_to "Add New Product", new_product_path, class:"list-group-item list-group-item-action" %>
+                <%= link_to "Settings", edit_user_registration_path, class:"list-group-item list-group-item-action" %>
+            </div>
+            <%= button_to "Log Out" , destroy_user_session_path, method: :delete, data: { turbo: "false" },
+                class: "btn btn-danger" , style:"width: 400px; margin-top: 700px" %>
+        </div>
+    </div>
+</div>

@@ -17,8 +17,14 @@
             <%= f.label :remember_me %>
         </div>
         <% end %>
-        <br>
-        <button type="submit" class="btn btn-primary">Log In<% f.submit %></button>
+          <br>
+          <button type="submit" class="btn btn-primary">Log In<% f.submit %></button>
+          <hr>
+          <br>
+          <label class="form-check-label" for="invalidCheck">
+            Don't have an account?
+          </label>
+          <%= link_to "Register" , new_user_registration_path, class: "btn" %>
     </form>
     <% end %>
 </div>
