@@ -1,6 +1,8 @@
 <%= render "navbar" %>
-<%= render "sidebar" %>
-<div class="container">
+<% if user_signed_in? %>
+  <%= render "sidebar" %>
+<% end %>
+  <div class="container">
   <br>
   <% if user_signed_in? %>
   <div style="justify-self: center;">
