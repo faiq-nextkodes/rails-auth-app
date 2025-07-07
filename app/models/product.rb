@@ -5,7 +5,6 @@ class Product < ApplicationRecord
   validate :min_price_10
   before_create :capitalize_product_name
   before_save :capitalize_product_name
-  validate :AddValidationsClass
 
   private
 
@@ -18,11 +17,5 @@ class Product < ApplicationRecord
   def capitalize_product_name
     self.name = name.capitalize
   end
-  
-end
 
-class AddValidationsClass
-  def self.validate
-    # logic
-  end
 end
