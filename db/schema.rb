@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_04_123334) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_07_162112) do
+  create_table "brands", force: :cascade do |t|
+    t.string "brand_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "brands_id"
+    t.index ["brands_id"], name: "index_products_on_brands_id"
     t.index ["name"], name: "index_products_on_name", unique: true
+    t.check_constraint "price > 10", name: "price_constraint"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,4 +39,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_04_123334) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "products", "brands", column: "brands_id"
 end

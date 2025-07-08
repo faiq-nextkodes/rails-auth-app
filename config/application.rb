@@ -15,6 +15,8 @@ module BasicForum
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.assets.paths << Rails.root.join('node_modules')
+    config.autoload_paths << Rails.root.join('app/validators')
+
 
     # Configuration for the application, engines, and railties goes here.
     #

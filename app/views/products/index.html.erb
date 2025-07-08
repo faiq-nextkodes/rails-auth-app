@@ -1,12 +1,17 @@
-<%= render "navbar" %>
+<%= render 'shared/navbar' %>
+
 <% if user_signed_in? %>
-  <%= render "sidebar" %>
+<%= render 'shared/sidebar' %>
 <% end %>
   <div class="container">
   <br>
   <% if user_signed_in? %>
   <div style="justify-self: center;">
     <%= link_to "Add New Product", new_product_path, class:"btn btn-primary", style:"width: 200px;" %>
+  </div>
+  <br>
+  <div style="justify-self: center;">
+    <%= link_to "Add New Brand", new_brand_path, class:"btn btn-primary", style:"width: 200px;" %>
   </div>
   <% end %>
     <br>
