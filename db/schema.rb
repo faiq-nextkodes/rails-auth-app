@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_09_092447) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_09_134400) do
   create_table "brands", force: :cascade do |t|
     t.string "brand_name"
     t.datetime "created_at", null: false
@@ -26,6 +26,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_09_092447) do
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["name"], name: "index_products_on_name", unique: true
     t.check_constraint "price > 10", name: "price_constraint"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "reviewable_type"
+    t.integer "reviewable_id"
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable"
   end
 
   create_table "users", force: :cascade do |t|

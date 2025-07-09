@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 
+  include Reviewable
+
   validates :name, presence: { message: "must be provided."}, uniqueness: true
   validates :price, presence: { message: "must be provided."}, numericality: { greater_than: 0 }
   before_create :capitalize_product_name
