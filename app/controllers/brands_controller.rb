@@ -1,7 +1,7 @@
 class BrandsController < ApplicationController
 
+  before_action :set_brand, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[ edit update destroy create new show ]
-  before_action :set_brand, only: %i[ new index ]
 
   def index
     @brands = Brand.all
@@ -9,16 +9,30 @@ class BrandsController < ApplicationController
 
   def new
     @brand = Brand.new
-    @brands = Brand.all
   end
 
   def edit
   end
 
   def update
+    respond_to do |format|
+      if @brand.update(brand_params)
+        format.html { redirect_to @brand, notice: "Brand was successfully updated." }
+        format.json { render :show, status: :ok, location: @brand }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @brand.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
+    @brand.destroy!
+
+    respond_to do |format|
+      format.html { redirect_to root_path, status: :see_other, notice: "Brand was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   def create
@@ -26,7 +40,7 @@ class BrandsController < ApplicationController
 
     respond_to do |format|
       if @brand.save
-        format.html { redirect_to @brand, notice: "Product was successfully created." }
+        format.html { redirect_to @brand, notice: "Brand was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,16 +50,17 @@ class BrandsController < ApplicationController
   end
 
   def show
+    @brands = Brand.all
   end
 
   private
 
   def set_brand
-    @brand = Brand.where(params[:brands_id])
+    @brand = Brand.find(params.expect(:id))
   end
 
   def brand_params
-    params.require(:brand).permit(:brand_name)
+    params.expect(brand: [ :brand_name, :id ])
   end
 
 end

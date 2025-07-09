@@ -1,0 +1,22 @@
+<%= render "shared/navbar" %>
+<%= render "shared/sidebar" %>
+
+<br>
+
+<div class="container">
+
+<h2> Edit Brand </h2>
+
+</div>
+
+<br>
+
+<%= render "form", brand: @brand %>
+
+<br>
+
+<div class="container">
+
+<%= button_to "Delete this Brand" , @brand, method: :delete ,class: "btn btn-danger" %>
+
+</div>

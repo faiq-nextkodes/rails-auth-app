@@ -7,12 +7,20 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Product.create([
-  { name: "Monitor", price: 70000 },
-  { name: "RTX 5090", price: 450000 },
-  { name: "Wallet", price: 4 }
-])
 
-User.create([
-  {email: "test2@example.com", password: "test123"}
-])
+# Brand.create([
+#   { brand_name: "ASUS" },
+#   { brand_name: "Adidas"},
+#   { brand_name: "Nvidia" }
+# ])
+
+# Product.create([
+#   { name: "Monitor", price: 70000, brand_id: 1 },
+#   { name: "RTX 5090", price: 450000, brand_id: 3 },
+#   { name: "Wallet", price: 1200, brand_id: 2 },
+#   { name: "GTX 1080 ti", price: 450000, brand_id: 3 }
+# ])
+
+# User.create([
+#   {email: "test@example.com", password: "test123"}
+# ])
