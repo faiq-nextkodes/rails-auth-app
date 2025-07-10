@@ -39,13 +39,14 @@
                                     <br>
                                 </div>
                                 <%= product.brand.brand_name %> <br>
-                                Price: <%= product.price %> PKR 
+                                Price: <%= product.price %> PKR <br>
+                                Type: <%= product.type %>
                               </div>
 
                               <% if user_signed_in? %>
 
-                                <%= link_to "Edit Product" , edit_product_path(product), class:"btn btn-secondary",
-                                  style:"margin-top: 17px;" %>
+                                <%= link_to "Edit Product" , edit_product_path(product), class:"btn btn-success",
+                                  style:"margin-top: 30px;" %>
 
                                   <% end %>
 
@@ -85,7 +86,7 @@
                                 </div>
                               </div>
                               <% if user_signed_in? %>
-                                <%= link_to "Edit Brand" , edit_brand_path(brand), class:"btn btn-secondary",
+                                <%= link_to "Edit Brand" , edit_brand_path(brand), class:"btn btn-success",
                                   style:"margin-top: 5px;" %>
                                   <% end %>
                             </li>

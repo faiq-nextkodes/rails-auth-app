@@ -1,0 +1,2 @@
+class Processor < Product
+end

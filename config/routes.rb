@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :products
   resources :brands
+  resources :graphics_cards
+  resources :processors
+  resources :admins
+  resources :visitors
   devise_for :users
 
   root "products#index"
